@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import { TituloComponent } from './titulo/titulo.component';
 
 import { LayoutModule  } from './layout/layout.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TituloComponent
+    TituloComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

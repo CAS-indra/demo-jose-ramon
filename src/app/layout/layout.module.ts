@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CabeceraComponent } from './cabecera/cabecera.component';
 import { PieComponent } from './pie/pie.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,9 @@ import { PieComponent } from './pie/pie.component';
     PieComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    
+    RouterModule
   ],
   exports: [
     CabeceraComponent,
