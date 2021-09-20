@@ -8,12 +8,14 @@ import { TituloComponent } from './titulo/titulo.component';
 
 import { LayoutModule  } from './layout/layout.module';
 import { HomeComponent } from './home/home.component';
+//import { TransaccionComponent } from './transaccion/transaccion.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TituloComponent,
-    HomeComponent
+    HomeComponent,
+    //TransaccionComponent
   ],
   imports: [
     BrowserModule,

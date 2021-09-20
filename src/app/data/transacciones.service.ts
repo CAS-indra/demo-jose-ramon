@@ -1,19 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 
-import { TransaccionesService } from '../data/transacciones.service';
-
-@Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+@Injectable({
+  providedIn: 'root'
 })
-export class HomeComponent implements OnInit {
+export class TransaccionesService {
 
-  public gasto = 0;
-  public ingreso = 0;
-  public result = 0;
-
-  /*
   public transacciones =  [
     {
       id: 'design_a_virus',
@@ -56,24 +47,10 @@ export class HomeComponent implements OnInit {
       ownerId: 'world_admin',
     },
   ];
-  */
-  public transacciones: any[] = [];
 
-  constructor(private transaccionesService: TransaccionesService) { }
+  constructor() { }
 
-  ngOnInit(): void {
-    this.transacciones = this.transaccionesService.getTransacciones();
-    this.balance();
-  }
-
-  public balance() {
-    this.transacciones.forEach((element: any) => {
-      if (element.kind == "spent") {
-        this.gasto += element.amount;
-      } else  {
-        this.ingreso += element.amount;
-      }
-    });
-    this.result = (this.ingreso - this.gasto);
+  getTransacciones(): any[] {
+    return this.transacciones;
   }
 }

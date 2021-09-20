@@ -2,7 +2,8 @@
 
 <div *ngFor="let transaccion of transacciones">
     <ul [ngClass]="{ 'negative': transaccion.kind=='spent', 'positive': transaccion.kind=='income' }">
-      💥 <li>Nombre: {{ transaccion.name }} </li>
+         <li><a routerLink="/transaccion/{{ transaccion.id }}">Id: {{ transaccion.id }}</a></li>
+    💥   <li>Nombre: {{ transaccion.name }} </li>
          <li>Descripcion: {{ transaccion.description }}</li>
          <li>Cantidad: {{ transaccion.amount | currency }}</li>
          <li>Kind: {{ transaccion.kind }}</li>
