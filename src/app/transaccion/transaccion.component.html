@@ -1,8 +1,19 @@
-<ul>
-    <li>Id: {{ transaccion.id}} </li>
-💥  <li>Nombre: {{ transaccion.name }} </li>
-    <li>Descripcion: {{ transaccion.description }}</li>
-    <li>Cantidad: {{ transaccion.amount | currency }}</li>
+<!--
+<ul *ngIf="transaccion$ | async as transaccion">
+    <li>Id: {{ transaccion.id }}</li>
+    <li>Name: {{ transaccion.name }}</li>
+    <li>Description: {{ transaccion.description }}</li>
+    <li>Amount: {{ transaccion.amount | currency }}</li>
     <li>Kind: {{ transaccion.kind }}</li>
-    <li>Fecha: {{ transaccion.date | date: 'dd/MM/yyyy' }}</li>
+    <li>Date: {{ transaccion.date | date: 'dd/MM/yyyy' }}</li>
+</ul>
+-->
+
+<ul>
+    <li>Id: {{ transaccion?.id}} </li>
+💥  <li>Name: {{ transaccion?.name }} </li>
+    <li>Description: {{ transaccion?.description }}</li>
+    <li>Amound: {{ transaccion?.amount | currency }}</li>
+    <li>Kind: {{ transaccion?.kind }}</li>
+    <li>Date: {{ transaccion?.date | date: 'dd/MM/yyyy' }}</li>
 </ul>

@@ -1,11 +1,18 @@
 import { Injectable } from '@angular/core';
 
+import { HttpClient } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+
+import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
 export class TransaccionesService {
 
-  public transacciones =  [
+  private url = 'https://proton-angular-builders.herokuapp.com/v1/transactions/';
+
+  /*
+  private transacciones =  [
     {
       id: 'design_a_virus',
       name: 'Design a virus',
@@ -47,10 +54,32 @@ export class TransaccionesService {
       ownerId: 'world_admin',
     },
   ];
+  */
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getTransacciones(): any[] {
-    return this.transacciones;
+  public getTransacciones$(): Observable<any[]> {
+    return this.http
+    .get<{data: any[]}>(this.url)
+    .pipe(map(res => res.data));
   }
+
+  public getTransaccionById$(id: string): Observable<any> {
+    return this.http
+      .get<any>(this.url + id)
+      .pipe(map(res => res.data));
+    //return of(transaccion);
+  }
+  /*
+  public getProyectos$(): Observable<any[]>{ // solo any[] seria un metodo sincrono, por eso no se utiliza, a su vez se pone obserbables
+    //return of([]);
+    return of(this.transacciones); // de esta manera creamos un observable de un array que no lo es
+  }
+
+  public getProyectoById$(id: string): Observable<any> {
+    const transaccion = this.transacciones.find(p => p.id ===id);
+    return of(transaccion);
+  }
+  */
 }
+
