@@ -1,1 +1,37 @@
-<p>nueva-transaccion works!</p>
+<h1>Formulario de transacion</h1>
+<form [formGroup]="formTransaccion" (ngSubmit)="submitTransaccion()">
+    <fieldset>
+        <div>
+            <label for="name">Name: </label>
+            <input type="text" name="name" id="name" formControlName="name">
+            <span *ngIf="formTransaccion.controls['name'].errors">Campo requerido</span>
+        </div>
+        <div>
+            <label for="description">Description: </label>
+            <input type="text" name="description" id="description" formControlName="description">
+        </div>
+        <div>
+            <label for="kind">Kind: </label>
+            <input type="date" name="kind" id="kind" formControlName="kind">
+        </div>
+        <div>
+            <label for="amount">Amount: </label>
+            <input type="number" name="amount" id="amount" formControlName="amount">
+        </div>
+        <div>
+            <label for="date">Date: </label>
+            <input type="date" name="date" id="date" formControlName="date">
+        </div>
+        <div>
+            <label for="projectId">ProjectId: </label>
+            <input type="text" name="projectId" id="projectId" formControlName="projectId">
+        </div>
+        <div>
+            <label for="ownerId">ownerId: </label>
+            <input type="text" name="ownerId" id="ownerId" formControlName="ownerId">
+        </div>
+    </fieldset>
+    <button>Reset</button>
+    <button type="submit" [disabled]="formTransaccion.invalid">Enviar</button>
+</form>
+<h2>{{ message }}</h2>

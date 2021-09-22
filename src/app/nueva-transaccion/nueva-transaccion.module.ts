@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NuevaTransaccionRoutingModule } from './nueva-transaccion-routing.module';
 import { NuevaTransaccionComponent } from './nueva-transaccion.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,9 @@ import { NuevaTransaccionComponent } from './nueva-transaccion.component';
   ],
   imports: [
     CommonModule,
-    NuevaTransaccionRoutingModule
+    NuevaTransaccionRoutingModule,
+
+    ReactiveFormsModule
   ]
 })
 export class NuevaTransaccionModule { }

@@ -4,13 +4,16 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class TransaccionesService {
 
-  private url = 'https://proton-angular-builders.herokuapp.com/v1/transactions/';
-
+  //private readonly url = 'https://proton-angular-builders.herokuapp.com/v1/transactions/';
+   private readonly url  = environment.url + 'transactions/';
   /*
   private transacciones =  [
     {
@@ -70,6 +73,23 @@ export class TransaccionesService {
       .pipe(map(res => res.data));
     //return of(transaccion);
   }
+
+  public postTransaccion$(transaccion: any): Observable<any> {
+    return this.http
+      .post<{data: any}>(this.url, transaccion)
+      .pipe(map(res => res.data));
+  }
+
+  public putTransaccion$(transaccion: any): Observable<any> {
+    return this.http
+      .put<{data: any}>(this.url + transaccion.id, transaccion)
+      .pipe(map(res => res.data));
+  }
+
+  public deleteTransaccionById$(id: string): Observable<void> {
+    return this.http.delete<void>(this.url + id);
+  }
+
   /*
   public getProyectos$(): Observable<any[]>{ // solo any[] seria un metodo sincrono, por eso no se utiliza, a su vez se pone obserbables
     //return of([]);
