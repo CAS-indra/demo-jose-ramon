@@ -9,26 +9,32 @@
         <div>
             <label for="description">Description: </label>
             <input type="text" name="description" id="description" formControlName="description">
+            <span *ngIf="formTransaccion.controls['description'].errors">Campo requerido</span>
         </div>
         <div>
             <label for="kind">Kind: </label>
             <input type="text" name="kind" id="kind" formControlName="kind">
+            <span *ngIf="formTransaccion.controls['kind'].errors">Campo requerido</span>
         </div>
         <div>
             <label for="amount">Amount: </label>
             <input type="number" name="amount" id="amount" formControlName="amount">
+            <span *ngIf="formTransaccion.controls['amount'].errors">Campo requerido</span>
         </div>
         <div>
             <label for="date">Date: </label>
             <input type="date" name="date" id="date" formControlName="date">
+            <span *ngIf="formTransaccion.controls['date'].errors">Campo requerido</span>
         </div>
         <div>
             <label for="projectId">ProjectId: </label>
             <input type="text" name="projectId" id="projectId" formControlName="projectId">
+            <span *ngIf="formTransaccion.controls['projectId'].errors">Campo requerido</span>
         </div>
         <div>
             <label for="ownerId">ownerId: </label>
             <input type="text" name="ownerId" id="ownerId" formControlName="ownerId">
+            <span *ngIf="formTransaccion.controls['ownerId'].errors">Campo requerido</span>
         </div>
     </fieldset>
     <button>Reset</button>
